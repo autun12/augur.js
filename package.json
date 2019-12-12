@@ -54,7 +54,9 @@
     "docker:geth:pop-normal-time": "scripts/docker/run.sh augurproject/dev-pop-normtime-geth",
     "docker:geth:attach": "docker run --rm --net host -it ethereum/client-go attach rpc:http://127.0.0.1:8545",
     "docker:geth:files": "scripts/copy-docker-files.sh augurproject/dev-pop-geth:core-$(node scripts/core-version.js)",
-    "prepush": "npm run lint && npm run test -- --reporter min"
+    "prepush": "npm run lint && npm run test -- --reporter min",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "1.5.2",
@@ -75,7 +77,8 @@
     "secure-random": "1.1.1",
     "speedomatic": "2.1.5",
     "uuid": "3.0.0",
-    "uuid-parse": "1.0.0"
+    "uuid-parse": "1.0.0",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -121,5 +124,6 @@
     "scripts": "scripts",
     "src": "src",
     "test": "test"
-  }
+  },
+  "snyk": true
 }
